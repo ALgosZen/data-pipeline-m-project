@@ -10,15 +10,18 @@ this docker run will install mysql and mount disk volume . change directory appr
 
 
 docker run --restart always --name mysql:latest --net dev-network \
-        && -v /Users/<mac-user/mysql-data-volume>:/var/lib/mysql \
-        && -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=<password>  mysql:latest
+        && -v /Users/<user/mysql-data-volume>:/var/lib/mysql \
+        && -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=<<password>>  mysql:latest
 
 2. Clone the repo
 
 git clone <repo>
 
-3. run source/datapipeline py file. input mysql connection string. code will load CSV file to mySQL db. If the script fails to create db run sql command
-create database
+3. run source/datapipeline py file. input mysql connection string command line . assuming database and table already exits.1
+
+
+4. code will load CSV file to mySQL db. rerun deleting records on safe mode for any issues.
+
 
 For more info, please refer to the Documentation under docs folder.
 
