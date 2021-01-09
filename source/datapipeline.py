@@ -25,9 +25,9 @@ def getDBConnection(host, dbs, usr, pwd):
     return cnx
 
 
-def processCSV(cnx):
+def load_third_party(cnx, csv_file_path):
     cur = cnx.cursor()
-    with open('../data/third_party_sales.csv') as csvfile:
+    with open(csv_file_path) as csvfile:
         reader = csv.reader(csvfile)
         sql_statement = """
                             INSERT INTO TICKET_SALES_EVENT
@@ -40,6 +40,7 @@ def processCSV(cnx):
                 cur.execute(sql_statement,row)
                 # commit in chunks if large file. this should do for current rows
             cnx.commit()
+            print('inserted all records from csv file')
 
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -72,9 +73,10 @@ if __name__ == "__main__":
     dbs = input("Enter mySQL db schema:")
     usr = input("Enter mySQL user:")
     pwd = input("Enter mySQL pw:")
+    csv_file_path = '../data/third_party_sales.csv'
     hash =sha256_crypt.hash(pwd)
     if sha256_crypt.verify(pwd, hash):
         conn = getDBConnection(host,dbs,usr,pwd)
-        processCSV(conn)
+        load_third_party(conn,csv_file_path)
     # # Get the most popular ticket in the past month
         query_popular_tickets(conn)

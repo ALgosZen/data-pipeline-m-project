@@ -22,6 +22,14 @@ git clone <repo>
 
 4. code will load CSV file to mySQL db. rerun deleting records on safe mode for any issues.
 
+5. code will display select query output as follows
+connected to db
+inserted all records from csv file
+Here are the most popular tickets in the past month:
+ -     Washington Spirits vs Sky Blue FC
+ -     Christmas Spectacular
+ -     The North American International Auto Show
+
 
 For more info, please refer to the Documentation under docs folder.
 
