@@ -1,0 +1,11 @@
+(base) greenbook@greenbooks-MBP source % python datapipeline.py
+Enter mySQL host:127.0.0.1
+Enter mySQL db schema:TICKET_SYS
+Enter mySQL user:xxxx
+Enter mySQL pw:xxxxxx
+connected to db
+inserted all records from csv file
+Here are the most popular tickets in the past month:
+ -     Washington Spirits vs Sky Blue FC
+ -     Christmas Spectacular
+ -     The North American International Auto Show

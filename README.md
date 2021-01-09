@@ -22,7 +22,7 @@ git clone <repo>
 
 4. code will load CSV file to mySQL db. rerun deleting records on safe mode for any issues.
 
-5. code will display select query output as follows
+5. code will display select query output as follows.
 
 
  Here are the most popular tickets in the past month:
@@ -30,6 +30,11 @@ git clone <repo>
  -     Christmas Spectacular
  -     The North American International Auto Show
 
+
+6. To retest code from scratch clear table so csv can be reloaded again
+#SET SQL_SAFE_UPDATES = 0;
+#delete from ticket_Sales_event
+#SET SQL_SAFE_UPDATES = 1;
 
 For more info, please refer to the Documentation under docs folder.
 
